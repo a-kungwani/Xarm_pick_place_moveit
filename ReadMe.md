@@ -66,3 +66,6 @@ The Repository is a modified version of [xarm_ros2](https://github.com/xArm-Deve
 ```bash
   $ ros2 launch xarm_moveit_config pp.launch.py
 ```
+## 4 Acknowledgement
+
+Developed using the [xarm_ros2](https://github.com/xArm-Developer/xarm_ros2) repository
