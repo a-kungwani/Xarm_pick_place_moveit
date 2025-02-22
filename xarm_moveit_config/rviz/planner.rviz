@@ -68,6 +68,8 @@ Visualization Manager:
           X: 2
           Y: 2
           Z: 2
+      Name: Motion Planning Tasks
+      Task Solution Topic: solution
       Name: MotionPlanning
       Planned Path:
         Color Enabled: false

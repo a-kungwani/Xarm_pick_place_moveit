@@ -17,10 +17,39 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(moveit_core REQUIRED)
+find_package(moveit_ros_planning REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_task_constructor_core REQUIRED)
+find_package(moveit_visual_tools REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(gazebo_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+add_executable(pick_place src/pick_place.cpp)
+
+ament_target_dependencies(pick_place
+  rclcpp
+  moveit_core
+  moveit_ros_planning
+  moveit_task_constructor_core
+  moveit_ros_planning_interface
+  moveit_visual_tools
+  geometry_msgs
+  sensor_msgs
+  tf2_ros
+  gazebo_msgs
+  tf2_geometry_msgs
+)
+install(TARGETS pick_place
+  DESTINATION lib/${PROJECT_NAME}
+)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

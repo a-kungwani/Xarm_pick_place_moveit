@@ -33,7 +33,9 @@ def launch_setup(context, *args, **kwargs):
     moveit_config_dump = moveit_config_dump.perform(context)
     moveit_config_dict = yaml.load(moveit_config_dump, Loader=yaml.FullLoader)
     moveit_config_package_name = 'xarm_moveit_config'
-
+    move_group_capabilities = {
+        "capabilities": "move_group/ExecuteTaskSolutionCapability"
+    }
     # Start the actual move_group node/action server
     move_group_node = Node(
         package='moveit_ros_move_group',
@@ -42,6 +44,7 @@ def launch_setup(context, *args, **kwargs):
         parameters=[
             moveit_config_dict,
             {'use_sim_time': use_sim_time},
+            move_group_capabilities
         ],
     )
 

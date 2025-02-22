@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="xarm_gripper">
 
-  <xacro:macro name="xarm_gripper_urdf" params="prefix:='' attach_to:='' attach_xyz:='0 0 0' attach_rpy:='0 0 0' ">
+  <xacro:macro name="xarm_gripper_urdf" params="prefix:='' attach_to:='link_eef' attach_xyz:='0 0 0' attach_rpy:='0 0 0' ">
 
     <xacro:unless value="${attach_to == ''}">
       <joint name="${prefix}gripper_fix" type="fixed">
@@ -188,7 +188,7 @@
     <link name="${prefix}link_tcp" />
 
     <joint name="${prefix}joint_tcp" type="fixed">
-      <origin xyz="0 0 0.172" rpy="0 0 0" />
+      <origin xyz="0 0 0.12" rpy="0 0 0" />
       <parent link="${prefix}xarm_gripper_base_link" />
       <child link="${prefix}link_tcp" />
     </joint>

@@ -17,9 +17,12 @@ setup(
     maintainer_email='vinman.cub@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
+    extras_require={  # ✅ Replace tests_require with extras_require
+        'test': ['pytest'],
+    },
     entry_points={
         'console_scripts': [
         ],
     },
 )
+

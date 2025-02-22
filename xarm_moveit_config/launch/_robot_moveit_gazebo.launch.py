@@ -11,6 +11,7 @@ import yaml
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import OpaqueFunction, IncludeLaunchDescription, DeclareLaunchArgument
+from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
@@ -34,7 +35,7 @@ def launch_setup(context, *args, **kwargs):
     mesh_suffix = LaunchConfiguration('mesh_suffix', default='stl')
     kinematics_suffix = LaunchConfiguration('kinematics_suffix', default='')
     
-    add_gripper = LaunchConfiguration('add_gripper', default=False)
+    add_gripper = LaunchConfiguration('add_gripper', default=True)
     add_vacuum_gripper = LaunchConfiguration('add_vacuum_gripper', default=False)
     add_bio_gripper = LaunchConfiguration('add_bio_gripper', default=False)
     add_realsense_d435i = LaunchConfiguration('add_realsense_d435i', default=False)
@@ -107,6 +108,10 @@ def launch_setup(context, *args, **kwargs):
     ).to_moveit_configs()
 
     moveit_config_dump = yaml.dump(moveit_config.to_dict())
+    file = open('moveit_config_dump.yaml', 'w')
+    file.write(moveit_config_dump)
+    file.close()
+    moveit_config = yaml.safe_load('moveit_config_dump.yaml')
 
     # robot moveit common launch
     # xarm_moveit_config/launch/_robot_moveit_common2.launch.py
@@ -138,6 +143,15 @@ def launch_setup(context, *args, **kwargs):
             'no_gui_ctrl': no_gui_ctrl,
         }.items(),
     )
+
+    # pick_place_demo = Node(
+    #     package="xarm_moveit_config",
+    #     executable="pick_place",
+    #     output="screen",
+    #     parameters=[
+    #         moveit_config,
+    #     ],
+    # )
 
     return [
         robot_gazebo_launch,

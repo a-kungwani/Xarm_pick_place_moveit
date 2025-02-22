@@ -94,6 +94,11 @@
       <disable_collisions link1="${prefix}left_finger" link2="${prefix}right_outer_knuckle" reason="Never" />
       <disable_collisions link1="${prefix}left_finger" link2="${prefix}xarm_gripper_base_link" reason="Never" />
       <disable_collisions link1="${prefix}left_inner_knuckle" link2="${prefix}left_outer_knuckle" reason="Never" />
+      <disable_collisions link1="grip" link2="link_tcp" reason="Never" />
+      <disable_collisions link1="${prefix}table1" link2="${prefix}leg_1" reason="adjacent fixed joint"/>
+      <disable_collisions link1="${prefix}table1" link2="${prefix}leg_2" reason="adjacent fixed joint"/>
+      <disable_collisions link1="${prefix}table1" link2="${prefix}leg_3" reason="adjacent fixed joint"/>
+      <disable_collisions link1="${prefix}table1" link2="${prefix}leg_4" reason="adjacent fixed joint"/>
       <disable_collisions link1="${prefix}left_inner_knuckle" link2="${prefix}link4" reason="Never" />
       <disable_collisions link1="${prefix}left_inner_knuckle" link2="${prefix}link5" reason="Never" />
       <disable_collisions link1="${prefix}left_inner_knuckle" link2="${prefix}link6" reason="Never" />
@@ -107,6 +112,11 @@
       <disable_collisions link1="${prefix}left_outer_knuckle" link2="${prefix}right_inner_knuckle" reason="Never" />
       <disable_collisions link1="${prefix}left_outer_knuckle" link2="${prefix}right_outer_knuckle" reason="Never" />
       <disable_collisions link1="${prefix}left_outer_knuckle" link2="${prefix}xarm_gripper_base_link" reason="Adjacent" />
+      <disable_collisions link1="base_cylinder" link2="link_base" reason="adjacent fixed joint"/>
+      <disable_collisions link1="table_2" link2="leg_21" reason="adjacent fixed joint"/>
+      <disable_collisions link1="table_2" link2="leg_22" reason="adjacent fixed joint"/>
+      <disable_collisions link1="table_2" link2="leg_23" reason="adjacent fixed joint"/>
+      <disable_collisions link1="table_2" link2="leg_24" reason="adjacent fixed joint"/>
 
       <disable_collisions link1="${prefix}link4" link2="${prefix}right_finger" reason="Never" />
       <disable_collisions link1="${prefix}link4" link2="${prefix}right_inner_knuckle" reason="Never" />
@@ -125,6 +135,7 @@
       <disable_collisions link1="${prefix}right_inner_knuckle" link2="${prefix}right_outer_knuckle" reason="Never" />
       <disable_collisions link1="${prefix}right_inner_knuckle" link2="${prefix}xarm_gripper_base_link" reason="Adjacent" />
       <disable_collisions link1="${prefix}right_outer_knuckle" link2="${prefix}xarm_gripper_base_link" reason="Adjacent" />
+      <disable_collisions link1="${prefix}link_eef" link2="${prefix}link6" reason="Never" />
       
       <disable_collisions link1="${prefix}link_eef" link2="${prefix}left_finger" reason="Never" />
       <disable_collisions link1="${prefix}link_eef" link2="${prefix}left_inner_knuckle" reason="Never" />

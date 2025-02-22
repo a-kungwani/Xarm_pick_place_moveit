@@ -53,6 +53,8 @@
     </xacro:unless>
     <xacro:property name="kinematics_params" value="${kinematics_config['kinematics']}"/>
 
+    
+
     <link name="${prefix}link_base">
       <inertial>
         <origin xyz="0.0 0.0 0.09103" rpy="0 0 0" />

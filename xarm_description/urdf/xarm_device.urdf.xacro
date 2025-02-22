@@ -23,7 +23,7 @@
   <xacro:arg name="add_d435i_links" default="true"/>
   <xacro:arg name="use_gazebo_camera" default="false"/>
 
-  <xacro:arg name="add_other_geometry" default="false"/>
+  <xacro:arg name="add_other_geometry" default="True"/>
   <xacro:arg name="geometry_type" default="box"/>
   <xacro:arg name="geometry_mass" default="0.1"/>
   <xacro:arg name="geometry_height" default="0.1"/>
